@@ -33,7 +33,7 @@ class Election {
    * @returns - registrar object
    */
   constructor(name, country, year, startDate, endDate) {
-
+    
     this.electionId = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 
     if (this.validateElection(this.electionId)) {

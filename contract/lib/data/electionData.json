@@ -4,8 +4,14 @@
   "registrarLocality": "Northern California",
   "registrarState": "California",
   "registrarCountry": "United States of America",
-  "registrarPrecinctNums": [1,2,3],
+  "registrarPrecinctNums": [
+    1,
+    2,
+    3
+  ],
   "electionName": "2020 Election",
-  "electionCountry": "United States of America",
-  "electionYear": 2020
+  "electionCountry": "Denmark",
+  "electionYear": 2022,
+  "electionMunicpality": "Horsens",
+  "electionRegion": "Central Denmark"
 }

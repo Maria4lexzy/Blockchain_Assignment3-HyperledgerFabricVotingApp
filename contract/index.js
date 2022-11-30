@@ -2,15 +2,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-'use strict';
+"use strict";
 
-const MyAssetContract = require('./libss/voterContract.js');
-// const MyQueryContract = require('./lib/query.js');
+const MyAssetContractContract = require("./lib/voterContract");
 
-module.exports.MyAssetContract = MyAssetContract;
-// module.exports.MyQueryContract = MyQueryContract;
-
-module.exports.contracts = [MyAssetContract];
-
-
-
+module.exports.MyAssetContractContract = MyAssetContractContract;
+module.exports.contracts = [MyAssetContractContract];

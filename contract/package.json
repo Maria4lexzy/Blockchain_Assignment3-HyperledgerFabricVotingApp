@@ -1,6 +1,6 @@
 {
-  "name": "voterContract",
-  "version": "0.0.1",
+  "name": "vote_contract",
+  "version": "0.0.2",
   "description": "My Smart Contract",
   "main": "index.js",
   "engines": {
