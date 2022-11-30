@@ -48,8 +48,8 @@ class MyAssetContractContract extends Contract {
         let election;
 
         //create voters
-        let voter1 = await new Voter("V1", "234", "Horea", "Porutiu");
-        let voter2 = await new Voter("V2", "345", "Duncan", "Conley");
+        let voter1 = await new Voter("V1", "234", "Maria", "John");
+        let voter2 = await new Voter("V2", "345", "Jane", "Doe");
 
         //update voters array
         voters.push(voter1);
@@ -71,7 +71,6 @@ class MyAssetContractContract extends Contract {
         );
 
         if (currElections.length === 0) {
-            //Nov 3 is election day
             let electionStartDate = await new Date(2020, 11, 3);
             let electionEndDate = await new Date(2020, 11, 4);
 
@@ -96,38 +95,38 @@ class MyAssetContractContract extends Contract {
         }
 
         //create votableItems for the ballots
-        let repVotable = await new VotableItem(
+        let socVotable = await new VotableItem(
             ctx,
-            "Republican",
-            ballotData.fedDemocratBrief
+            "Social Democrat",
+            ballotData.SocialDemokratiet
         );
-        let demVotable = await new VotableItem(
+        let venVotable = await new VotableItem(
             ctx,
-            "Democrat",
-            ballotData.republicanBrief
-        );
-        let indVotable = await new VotableItem(
-            ctx,
-            "Green",
-            ballotData.greenBrief
-        );
-        let grnVotable = await new VotableItem(
-            ctx,
-            "Independent",
-            ballotData.independentBrief
+            "Venstre",
+            ballotData.Venstre
         );
         let libVotable = await new VotableItem(
             ctx,
-            "Libertarian",
-            ballotData.libertarianBrief
+            "Danish Social Liberal Party",
+            ballotData.radikale
+        );
+        let grnVotable = await new VotableItem(
+            ctx,
+            "Socialist People's Party",
+            ballotData.GreenLeft
+        );
+        let enhVotable = await new VotableItem(
+            ctx,
+            "Red-Green Alliance",
+            ballotData.Enhedslisten
         );
 
         //populate choices array so that the ballots can have all of these choices
-        votableItems.push(repVotable);
-        votableItems.push(demVotable);
-        votableItems.push(indVotable);
-        votableItems.push(grnVotable);
+        votableItems.push(socVotable);
+        votableItems.push(venVotable);
         votableItems.push(libVotable);
+        votableItems.push(grnVotable);
+        votableItems.push(enhVotable);
 
         for (let i = 0; i < votableItems.length; i++) {
             //save votable choices in world state
@@ -163,7 +162,7 @@ class MyAssetContractContract extends Contract {
      * Creates a ballot in the world state, and updates voter ballot and castBallot properties.
      *
      * @param ctx - the context of the transaction
-     * @param votableItems - The different political parties and candidates you can vote for, which are on the ballot.
+     * @param votableItems - The  political parties and candidates you can vote for, which are on the ballot.
      * @param election - the election we are generating a ballot for. All ballots are the same for an election.
      * @param voter - the voter object
      * @returns - nothing - but updates the world state with a ballot for a particular voter object
@@ -203,7 +202,7 @@ class MyAssetContractContract extends Contract {
      * @param args.registrarId - the registrar the voter is registered for
      * @param args.firstName - first name of voter
      * @param args.lastName - last name of voter
-     * @returns - nothing - but updates the world state with a voter
+      updates the world state with a voter
      */
     async createVoter(ctx, args) {
         args = JSON.parse(args);
@@ -243,7 +242,7 @@ class MyAssetContractContract extends Contract {
         //generate ballot with the given votableItems
         await this.generateBallot(ctx, votableItems, currElection, newVoter);
 
-        let response = `voter with voterId ${newVoter.voterId} is updated in the world state`;
+        let response = `voterId ${newVoter.voterId} has been updated in the world state`;
         return response;
     }
 
@@ -259,7 +258,7 @@ class MyAssetContractContract extends Contract {
     async deleteMyAsset(ctx, myAssetId) {
         const exists = await this.myAssetExists(ctx, myAssetId);
         if (!exists) {
-            throw new Error(`The my asset ${myAssetId} does not exist`);
+            throw new Error(`The asset ${myAssetId} does not exist`);
         }
 
         await ctx.stub.deleteState(myAssetId);

@@ -1,17 +1,9 @@
 {
-  "registrarDistinguishedName": "San Francisco Municipality Registrar",
-  "registrarOrg": "San Francisco Org",
-  "registrarLocality": "Northern California",
-  "registrarState": "California",
-  "registrarCountry": "United States of America",
-  "registrarPrecinctNums": [
-    1,
-    2,
-    3
-  ],
-  "electionName": "2020 Election",
+  "registrarDistinguishedName": "Horsens Registrar",
+  "registrarLocality": "Horsens",
+  "electionName": "2022 Election",
   "electionCountry": "Denmark",
-  "electionYear": 2022,
+  "electionYear": 2020,
   "electionMunicpality": "Horsens",
   "electionRegion": "Central Denmark"
 }

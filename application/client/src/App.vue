@@ -60,6 +60,16 @@ a {
   transition: all linear 0.4s;
 }
 
+button {
+  background-color: #129581;
+  color: white;
+  padding: 4px 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all linear 0.4s;
+  border: none;
+}
+
 a:hover {
   background-color: rgba(104, 218, 199, 0.8);
   transform: scale(1.2);

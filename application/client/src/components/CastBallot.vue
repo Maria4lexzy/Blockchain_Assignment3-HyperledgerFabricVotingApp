@@ -1,20 +1,20 @@
 <template>
   <div class="posts">
     <h1>Cast Ballot</h1>
-    <input type="radio" id="one" value="Republican" v-model="picked">
-    <label for="one">Donald Trump (Republican)</label>
+    <input type="radio" id="one" value="Social Democrat" v-model="picked">
+    <label for="one">Mette Frederiksen (social democrat)</label>
     <br>
-    <input type="radio" id="two" value="Democrat" v-model="picked">
-    <label for="two">TBA (Democratic)</label>
+    <input type="radio" id="two" value="Venstre" v-model="picked">
+    <label for="two">Jakob Jensen (Right)</label>
     <br>
     <input type="radio" id="two" value="Green" v-model="picked">
-    <label for="two">TBA (Green Party)</label>
+    <label for="two">Morten Messershmidt</label>
     <br>
-    <input type="radio" id="two" value="Independent" v-model="picked">
-    <label for="two">TBA (Independent)</label>
+    <input type="radio" id="two" value="Green Left" v-model="picked">
+    <label for="two">Pia Olsen (Socialist People's Party)</label>
     <br>
-    <input type="radio" id="two" value="Libertarian" v-model="picked">
-    <label for="two">TBA (Libertarian)</label>
+    <input type="radio" id="two" value="Red-Green" v-model="picked">
+    <label for="two">TBA Red-Green Alliance</label>
     <br>
     <br>
     <span v-if="picked">
@@ -72,16 +72,16 @@ export default {
       console.log(this.input.voterId);
       this.response = null;
 
- 
+
 
       //error checking for making sure to vote for a valid party
-      if (this.picked === null ) {
+      if (this.picked === null) {
         console.log('this.picked === null')
 
         let response = "You have to pick a party to vote for!";
         this.response = response;
         await this.hideSpinner();
-      
+
       } else if (this.input.voterId === undefined) {
         console.log('this.voterId === undefined')
 
@@ -101,13 +101,13 @@ export default {
         console.log(apiResponse);
 
         if (apiResponse.data.error) {
-          this.response= apiResponse.data.error;
+          this.response = apiResponse.data.error;
           await this.hideSpinner();
         } else if (apiResponse.data.message) {
-          this.response= `Could not find voter with voterId ${this.input.voterId}
+          this.response = `Could not find voter with voterId ${this.input.voterId}
             in the state. Make sure you are entering a valid voterId`;
           await this.hideSpinner();
-        } 
+        }
         else {
           let response = `Successfully recorded vote for ${this.picked} party 
             for voter with voterId ${apiResponse.data.voterId}. Thanks for 

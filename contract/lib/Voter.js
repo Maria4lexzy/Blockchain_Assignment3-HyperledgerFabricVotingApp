@@ -5,8 +5,7 @@ class Voter {
    *
    * Voter
    *
-   * Constructor for a Voter object. Voter has a voterId and registrar that the
-   * voter is . 
+   * Constructor for a Voter object. Voter has a voterId and  the object of a registrar
    *  
    * @param items - an array of choices 
    * @param election - what election you are making ballots for 
@@ -31,7 +30,7 @@ class Voter {
       }
       return this;
 
-    } else if (!this.validateVoter(voterId)){
+    } else if (!this.validateVoter(voterId)) {
       throw new Error('the voterId is not valid.');
     } else {
       throw new Error('the registrarId is not valid.');
@@ -49,7 +48,7 @@ class Voter {
    * @returns - yes if valid Voter, no if invalid
    */
   async validateVoter(voterId) {
-    //VoterId error checking here, i.e. check if valid drivers License, or state ID
+    //VoterId error check if ID is Valid
     if (voterId) {
       return true;
     } else {
@@ -60,15 +59,12 @@ class Voter {
   /**
    *
    * validateRegistrar
-   *
-   * check for valid registrarId, should be cross checked with government
-   *  
+   * A government check could be done to verify the ID of the Registrar Admin through an api call
    * @param voterId - an array of choices 
    * @returns - yes if valid Voter, no if invalid
    */
   async validateRegistrar(registrarId) {
-
-    //registrarId error checking here, i.e. check if valid drivers License, or state ID
+    //registrarId error check
     if (registrarId) {
       return true;
     } else {

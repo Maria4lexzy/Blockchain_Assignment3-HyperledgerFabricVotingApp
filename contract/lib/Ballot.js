@@ -14,7 +14,7 @@ class Ballot {
   constructor(ctx, items, election, voterId) {
 
     if (this.validateBallot(ctx, voterId)) {
-
+      //ksljflkd
       this.votableItems = items;
       this.election = election;
       this.voterId = voterId;
